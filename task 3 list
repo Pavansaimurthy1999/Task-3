@@ -1,0 +1,19 @@
+import re
+story = "My name is Pavan Sai, and I am a tarinee in hallmark at kakinada city.Kakinada is a city in Andhra Pradesh.It is famous in various aspects.One of the well reputed university JNTUK is in Kakinada and other institution named Andhra Polytechnic is also in Kakinada.Also it is famous for it's well known port area.Also it is site of some grear companies like Hallmark and others."
+person = {
+    "name" : "Pavan Sai",
+    "city" : "Kakinada",
+    "university" : "JNTUK",
+    "institution" : "Andhra Polytechnic",
+    "company" : "Hallmark"
+}
+final_list = []
+search_list = person.values()
+
+for x in search_list:
+    for y in re.finditer(x,story):
+        start_index = story.find(x)
+        end_index = start_index + (len(x)-1)
+        list = [x,start_index,end_index]
+        final_list.append(list)
+print(final_list)
